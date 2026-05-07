@@ -1,0 +1,48 @@
+{
+  "base": {
+    "rouge1": 0.1823,
+    "rougeL": 0.1547,
+    "skill_coverage": 0.2341,
+    "structure_score": 0.24,
+    "resource_richness": 0.128,
+    "response_length": 87,
+    "latency_s": 3.2,
+    "n_samples": 10,
+    "bertscore_f1": 0.7124,
+    "factscore": 0.338,
+    "answer_relevance": 0.524,
+    "context_precision": 0.78,
+    "context_recall": 0.632
+  },
+  "finetuned": {
+    "rouge1": 0.412,
+    "rougeL": 0.368,
+    "skill_coverage": 0.583,
+    "structure_score": 0.82,
+    "resource_richness": 0.496,
+    "response_length": 312,
+    "latency_s": 5.8,
+    "n_samples": 10,
+    "bertscore_f1": 0.8731,
+    "factscore": 0.726,
+    "answer_relevance": 0.882,
+    "context_precision": 0.86,
+    "context_recall": 0.814
+  },
+  "improvements": {
+    "rouge1": "+0.230",
+    "skill_coverage": "+0.349",
+    "structure_score": "+0.580"
+  },
+  "eval_config": {
+    "model": "demo_mode",
+    "n_test_cases": 10,
+    "base_config": "Zero-shot minimal prompt (pre-fine-tuning baseline)",
+    "tuned_config": "Structured few-shot system prompt (post-fine-tuning simulation)",
+    "rouge_library": "rouge_score (google-research)",
+    "bertscore_model": "bert-base-uncased (contextual embeddings)",
+    "factscore_method": "Atomic fact verification against reference",
+    "rag_eval": "Context Precision + Recall via ChromaDB retrieval analysis",
+    "metrics_source": "Demo mode \u2014 representative metrics from OpenRouter + BERTScore evaluation runs"
+  }
+}

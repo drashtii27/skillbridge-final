@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.env
+venv/
+model_cache/
+data/raw/*.json
+data/processed/*.json
+data/fine_tune/*.json
+*.log
+.DS_Store
+
+# Node / Next.js
+node_modules/
+frontend/node_modules/
+frontend/.next/
+.next/
+*.pack
+*.node

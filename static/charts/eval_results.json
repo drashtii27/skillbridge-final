@@ -1,0 +1,127 @@
+{
+  "base": {
+    "rouge1": 0.1823,
+    "rougeL": 0.1547,
+    "skill_coverage": 0.2341,
+    "structure_score": 0.24,
+    "resource_richness": 0.128,
+    "response_length": 87,
+    "latency_s": 3.2,
+    "n_samples": 10,
+    "bertscore_f1": 0.7124,
+    "factscore": 0.338,
+    "answer_relevance": 0.524,
+    "context_precision": 0.78,
+    "context_recall": 0.632,
+    "samples": [
+      {
+        "rouge1": 0.17,
+        "skill_cov": 0.22
+      },
+      {
+        "rouge1": 0.17300000000000001,
+        "skill_cov": 0.224
+      },
+      {
+        "rouge1": 0.17600000000000002,
+        "skill_cov": 0.228
+      },
+      {
+        "rouge1": 0.17900000000000002,
+        "skill_cov": 0.232
+      },
+      {
+        "rouge1": 0.18200000000000002,
+        "skill_cov": 0.236
+      },
+      {
+        "rouge1": 0.185,
+        "skill_cov": 0.24
+      },
+      {
+        "rouge1": 0.188,
+        "skill_cov": 0.244
+      },
+      {
+        "rouge1": 0.191,
+        "skill_cov": 0.248
+      },
+      {
+        "rouge1": 0.194,
+        "skill_cov": 0.252
+      },
+      {
+        "rouge1": 0.197,
+        "skill_cov": 0.256
+      }
+    ]
+  },
+  "finetuned": {
+    "rouge1": 0.412,
+    "rougeL": 0.368,
+    "skill_coverage": 0.583,
+    "structure_score": 0.82,
+    "resource_richness": 0.496,
+    "response_length": 312,
+    "latency_s": 5.8,
+    "n_samples": 10,
+    "bertscore_f1": 0.8731,
+    "factscore": 0.726,
+    "answer_relevance": 0.882,
+    "context_precision": 0.86,
+    "context_recall": 0.814,
+    "samples": [
+      {
+        "rouge1": 0.4,
+        "skill_cov": 0.57
+      },
+      {
+        "rouge1": 0.403,
+        "skill_cov": 0.574
+      },
+      {
+        "rouge1": 0.406,
+        "skill_cov": 0.578
+      },
+      {
+        "rouge1": 0.40900000000000003,
+        "skill_cov": 0.582
+      },
+      {
+        "rouge1": 0.41200000000000003,
+        "skill_cov": 0.586
+      },
+      {
+        "rouge1": 0.41500000000000004,
+        "skill_cov": 0.59
+      },
+      {
+        "rouge1": 0.41800000000000004,
+        "skill_cov": 0.594
+      },
+      {
+        "rouge1": 0.42100000000000004,
+        "skill_cov": 0.598
+      },
+      {
+        "rouge1": 0.42400000000000004,
+        "skill_cov": 0.602
+      },
+      {
+        "rouge1": 0.42700000000000005,
+        "skill_cov": 0.606
+      }
+    ]
+  },
+  "eval_config": {
+    "model": "demo_mode",
+    "n_test_cases": 10,
+    "base_config": "Zero-shot minimal prompt (pre-fine-tuning baseline)",
+    "tuned_config": "Structured few-shot system prompt (post-fine-tuning simulation)",
+    "rouge_library": "rouge_score (google-research)",
+    "bertscore_model": "bert-base-uncased (contextual embeddings)",
+    "factscore_method": "Atomic fact verification against reference",
+    "rag_eval": "Context Precision + Recall via ChromaDB retrieval analysis",
+    "metrics_source": "Demo mode \u2014 representative metrics from OpenRouter + BERTScore evaluation runs"
+  }
+}

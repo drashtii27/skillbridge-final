@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:8000/api/health)",
+      "Bash(brew install *)",
+      "Bash(pdftoppm -v)",
+      "Bash(pdftoppm -r 150 -png \"/Users/drashtibhingradiya/Downloads/Beyond BLEU and ROUGE_ Modern Approaches to Evaluating LLMs and AI Systems.pdf\" /tmp/eval_pdf_page -f 1 -l 8)",
+      "Read(//private/tmp/**)",
+      "Bash(pdftoppm -r 150 -png \"/Users/drashtibhingradiya/Downloads/Beyond BLEU and ROUGE_ Modern Approaches to Evaluating LLMs and AI Systems.pdf\" /tmp/eval_pdf_page -f 9 -l 20)",
+      "Bash(/opt/anaconda3/bin/pip install *)",
+      "Bash(python *)",
+      "Bash(grep -v \"^Binary\" echo \"---SCRAPERS---\" ls /Users/drashtibhingradiya/Desktop/skillbridge_final/scrapers/ echo \"---DATABASE---\" ls /Users/drashtibhingradiya/Desktop/skillbridge_final/database/ echo \"---EVALUATION---\" ls /Users/drashtibhingradiya/Desktop/skillbridge_final/evaluation/)",
+      "Bash(grep -v __pycache__ echo \"---\" grep -rn \"from scrapers\\\\|import scrapers\\\\|from database import\\\\|from evaluation import\" /Users/drashtibhingradiya/Desktop/skillbridge_final/ --include=\"*.py\")",
+      "Bash(npm run *)",
+      "Bash(python3 -m json.tool)",
+      "Bash(pdftotext \"/Users/drashtibhingradiya/Downloads/DATA 298B Final Report Requirements 20220504.pdf\" -)",
+      "Bash(python3 -c \"import reportlab; print\\('reportlab', reportlab.Version\\)\")",
+      "Bash(pip install *)",
+      "Bash(python3 *)",
+      "Bash(/opt/anaconda3/bin/python -c \"import reportlab; print\\('reportlab', reportlab.Version\\)\")",
+      "Bash(/opt/anaconda3/bin/python -c \"from reportlab.pdfgen import canvas; print\\('OK'\\)\")",
+      "Bash(/opt/anaconda3/bin/python *)",
+      "mcp__claude_ai_Gamma__generate",
+      "Bash(pip show *)",
+      "Bash(npm install *)",
+      "Bash(node *)",
+      "Bash(npm list *)",
+      "Bash(npx vercel *)"
+    ]
+  }
+}
