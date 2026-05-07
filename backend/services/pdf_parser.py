@@ -5,24 +5,17 @@ from loguru import logger
 
 
 def _ocr_pdf_bytes(file_bytes: bytes) -> str:
-    """OCR fallback for scanned/image PDFs using PyMuPDF + pytesseract."""
+    """OCR fallback for scanned/image PDFs using pdf2image + pytesseract."""
     try:
-        import fitz  # PyMuPDF
         import pytesseract
-        from PIL import Image
-        import numpy as np
+        from pdf2image import convert_from_bytes
 
-        doc = fitz.open(stream=file_bytes, filetype="pdf")
+        images = convert_from_bytes(file_bytes, dpi=200, first_page=1, last_page=8)
         pages = []
-        for page_num in range(min(len(doc), 8)):  # cap at 8 pages
-            page = doc[page_num]
-            mat = fitz.Matrix(2.0, 2.0)  # 2x zoom = 144 DPI for better OCR
-            pix = page.get_pixmap(matrix=mat, colorspace=fitz.csRGB)
-            img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+        for img in images:
             text = pytesseract.image_to_string(img, config="--psm 6")
             if text.strip():
                 pages.append(text)
-        doc.close()
         result = "\n\n".join(pages)
         logger.info(f"OCR extracted {len(result)} chars from scanned PDF")
         return result
