@@ -620,7 +620,7 @@ export default function LandingPage() {
                       <h1 className="text-3xl md:text-4xl font-black text-white mb-3">
                         Drop your <span className="gradient-text">resume</span>
                       </h1>
-                      <p className="text-gray-400 text-sm">Mistral 7B extracts your skills · Nemotron Ultra 253B builds your roadmap</p>
+                      <p className="text-gray-400 text-sm">Mistral Small 24B extracts your skills · Nemotron Ultra 253B builds your roadmap</p>
                     </div>
 
                     <div {...getRootProps()}
@@ -640,7 +640,7 @@ export default function LandingPage() {
                           </div>
                           <div>
                             <p className="text-white font-semibold text-lg mb-1">
-                              {progress < 55 ? "Mistral 7B parsing your resume…" : "Scoring role matches…"}
+                              {progress < 55 ? "Mistral Small 24B parsing your resume…" : "Scoring role matches…"}
                             </p>
                             <p className="text-gray-500 text-sm">AI is reading every line</p>
                           </div>
@@ -685,7 +685,7 @@ export default function LandingPage() {
                     <div className="text-center mb-8">
                       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-4">
                         <Zap className="w-3.5 h-3.5" />
-                        {extractedSkills.length} skills detected · Mistral 7B extraction
+                        {extractedSkills.length} skills detected · Mistral Small 24B extraction
                       </div>
                       <h1 className="text-3xl font-black text-white mb-2">
                         Your <span className="gradient-text">best-fit</span> roles

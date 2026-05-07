@@ -46,7 +46,24 @@ def extract_text_from_pdf(file_bytes: bytes) -> str:
     except Exception as e:
         logger.warning(f"pdfplumber failed: {e}")
 
-    # Layer 2: OCR for scanned/image PDFs
+    # Layer 2: PyMuPDF (handles more PDF variants — embedded fonts, compressed streams)
+    try:
+        import fitz  # PyMuPDF
+        doc = fitz.open(stream=file_bytes, filetype="pdf")
+        pages = []
+        for page in doc:
+            text = page.get_text("text")
+            if text and text.strip():
+                pages.append(text)
+        doc.close()
+        text = "\n\n".join(pages)
+        if len(text.strip()) > 100:
+            logger.info(f"PyMuPDF extracted {len(text)} chars")
+            return text
+    except Exception as e:
+        logger.warning(f"PyMuPDF failed: {e}")
+
+    # Layer 3: OCR for scanned/image PDFs (requires tesseract system binary)
     logger.info("Text layer empty — attempting OCR on scanned PDF")
     return _ocr_pdf_bytes(file_bytes)
 
