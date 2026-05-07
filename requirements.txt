@@ -33,5 +33,6 @@ rouge-score>=0.1.2
 
 # Config / utils
 python-dotenv>=1.0.0
+pydantic[email]>=2.0.0
 pydantic-settings>=2.0.0
 loguru>=0.7.0
