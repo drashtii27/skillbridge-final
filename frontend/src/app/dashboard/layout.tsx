@@ -21,8 +21,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const { gapResult, user, setUser, setAccessToken, setGapResult, setRoadmap } = useAppStore();
 
   useEffect(() => {
-    if (!gapResult) router.replace("/");
-  }, [gapResult, router]);
+    // Only block the overview — badges/interview/roadmap are accessible standalone
+    if (!gapResult && pathname === "/dashboard") router.replace("/");
+  }, [gapResult, pathname, router]);
 
   const logout = () => {
     setUser(null);
@@ -41,7 +42,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <div className="w-8 h-8 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center justify-center">
             <span className="text-red-400 font-black text-sm">SB</span>
           </div>
-          <span className="font-black text-white group-hover:gradient-text transition-all">SkillBridge</span>
+          <span className="font-black text-white group-hover:gradient-text transition-all">CareerForge AI</span>
         </Link>
 
         {/* User XP pill */}
@@ -96,7 +97,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
       {/* Mobile top bar */}
       <div className="md:hidden fixed top-0 inset-x-0 z-40 glass border-b border-white/5 px-4 h-14 flex items-center justify-between">
-        <Link href="/" className="font-black text-white">SkillBridge</Link>
+        <Link href="/" className="font-black text-white">CareerForge AI</Link>
         <div className="flex gap-1">
           {NAV.map((item) => {
             const active = item.exact ? pathname === item.href : pathname.startsWith(item.href);
