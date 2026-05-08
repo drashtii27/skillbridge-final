@@ -1,10 +1,22 @@
 import hashlib
 import asyncio
+import re
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 import httpx
 from loguru import logger
 from ..core.config import get_settings
+
+
+def _strip_html(text: str) -> str:
+    return re.sub(r"<[^>]+>", " ", text).replace("&amp;", "&").replace("&nbsp;", " ").strip()
+
+
+def _is_relevant(job_title: str, role: str) -> bool:
+    """Return True if the job title is relevant to the target role."""
+    role_words = set(w.lower() for w in re.split(r"[\s/\-]+", role) if len(w) > 2)
+    title_lower = job_title.lower()
+    return any(word in title_lower for word in role_words)
 
 
 def _make_hash(title: str, company: str) -> str:
@@ -83,9 +95,7 @@ async def _fetch_remotive(client: httpx.AsyncClient, role: str, count: int) -> l
                 "salary_min": 0,
                 "salary_max": 0,
                 "url": item.get("url", ""),
-                "description_snippet": (item.get("description", "")[:300]
-                                        .replace("<p>", "").replace("</p>", " ")
-                                        .replace("<br>", " ").replace("&amp;", "&")[:300]),
+                "description_snippet": _strip_html(item.get("description", ""))[:300],
                 "source": "Remotive",
                 "posted_at": item.get("publication_date", ""),
                 "hash": _make_hash(item.get("title", ""), item.get("company_name", "")),
@@ -147,9 +157,7 @@ async def _fetch_the_muse(client: httpx.AsyncClient, role: str, count: int) -> l
                 "salary_min": 0,
                 "salary_max": 0,
                 "url": item.get("refs", {}).get("landing_page", ""),
-                "description_snippet": (item.get("contents", "")
-                                        .replace("<p>", "").replace("</p>", " ")
-                                        .replace("<br>", " ")[:300]),
+                "description_snippet": _strip_html(item.get("contents", ""))[:300],
                 "source": "The Muse",
                 "posted_at": item.get("publication_date", ""),
                 "hash": _make_hash(item.get("name", ""), company),
@@ -203,7 +211,7 @@ async def fetch_jobs_multi_source(role: str, count_per_source: int = 6) -> list[
         if isinstance(result, list):
             for job in result:
                 h = job.get("hash", "")
-                if h and h not in seen_hashes:
+                if h and h not in seen_hashes and _is_relevant(job.get("title", ""), role):
                     seen_hashes.add(h)
                     all_jobs.append(job)
 
