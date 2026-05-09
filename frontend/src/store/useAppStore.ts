@@ -46,8 +46,13 @@ export const useAppStore = create<AppState>()(
       partialize: (s) => ({
         accessToken: s.accessToken,
         user: s.user,
+        gapResult: s.gapResult,
+        roadmap: s.roadmap,
+        resumeSkills: s.resumeSkills,
         completedSteps: s.completedSteps,
         completedStepsRoadmapKey: s.completedStepsRoadmapKey,
+        targetRole: s.targetRole,
+        targetMonths: s.targetMonths,
       }),
     }
   )
