@@ -32,16 +32,16 @@ interface RoleSuggestion {
 // ─── Journey steps ───────────────────────────────────────────────────────────
 const JOURNEY_STEPS = [
   { n: "01", Icon: Upload,    title: "Upload Resume",  desc: "PDF auto-parsed. Mistral Small 24B extracts every skill instantly.",          color: "#ef4444", glow: "rgba(239,68,68,0.35)" },
-  { n: "02", Icon: Brain,     title: "AI Skill Scan",  desc: "Nemotron Ultra 253B maps your profile against 30+ career tracks.",            color: "#f97316", glow: "rgba(249,115,22,0.35)" },
+  { n: "02", Icon: Brain,     title: "AI Skill Scan",  desc: "Nemotron 253B maps your profile against 30+ career tracks.",            color: "#f97316", glow: "rgba(249,115,22,0.35)" },
   { n: "03", Icon: BarChart2, title: "Gap Analysis",   desc: "DeepSeek R1 671B ranks skill gaps with chain-of-thought market reasoning.",   color: "#ef4444", glow: "rgba(239,68,68,0.3)" },
-  { n: "04", Icon: Map,       title: "Roadmap Built",  desc: "Week-by-week plan with real resources, curated by Nemotron Ultra 253B.",      color: "#f97316", glow: "rgba(249,115,22,0.3)" },
+  { n: "04", Icon: Map,       title: "Roadmap Built",  desc: "Week-by-week plan with real resources, curated by Nemotron 253B.",      color: "#f97316", glow: "rgba(249,115,22,0.3)" },
   { n: "05", Icon: Mic,       title: "Interview Prep", desc: "Qwen3 235B generates role-specific questions with detailed answer guides.",   color: "#ef4444", glow: "rgba(239,68,68,0.25)" },
   { n: "06", Icon: Briefcase, title: "Get Hired",      desc: "Live jobs from Adzuna · Remotive · Jobicy · The Muse, refreshed daily.",      color: "#f97316", glow: "rgba(249,115,22,0.25)" },
 ];
 
 // ─── 4-Model showcase ─────────────────────────────────────────────────────────
 const AI_MODELS = [
-  { icon: <Cpu className="w-4 h-4" />, name: "Nemotron Ultra 253B", task: "Roadmap Generation", tag: "NVIDIA · Main Model", color: "text-red-400", border: "border-red-500/25", bg: "bg-red-500/8" },
+  { icon: <Cpu className="w-4 h-4" />, name: "Nemotron 253B", task: "Roadmap Generation", tag: "NVIDIA · Main Model", color: "text-red-400", border: "border-red-500/25", bg: "bg-red-500/8" },
   { icon: <Search className="w-4 h-4" />, name: "Mistral Small 24B", task: "Skill Extraction", tag: "Mistral · Fast NER", color: "text-orange-400", border: "border-orange-500/25", bg: "bg-orange-500/8" },
   { icon: <Network className="w-4 h-4" />, name: "DeepSeek R1 671B", task: "Market Insight & RAG", tag: "DeepSeek · Reasoning", color: "text-amber-400", border: "border-amber-500/25", bg: "bg-amber-500/8" },
   { icon: <MessageSquare className="w-4 h-4" />, name: "Qwen3 235B", task: "Interview & Quiz", tag: "Alibaba · Latest", color: "text-rose-300", border: "border-rose-500/25", bg: "bg-rose-500/8" },
@@ -64,9 +64,9 @@ const MONTHS = [1, 2, 3, 4, 6];
 
 const GEN_STEPS = [
   "Mistral Small 24B extracting your skills…",
-  "Nemotron Ultra 253B mapping skill connections…",
+  "Nemotron 253B mapping skill connections…",
   "DeepSeek R1 analyzing 2026 market data…",
-  "Nemotron Ultra 253B building your roadmap…",
+  "Nemotron 253B building your roadmap…",
   "Qwen3 235B preparing interview questions…",
   "Pulling live jobs from 4 boards…",
 ];
@@ -288,7 +288,7 @@ export default function LandingPage() {
                     <Sparkles className="w-4 h-4 text-red-400" />
                   </div>
                   <span className="font-black text-white text-lg tracking-tight">
-                    CareerForge<span className="gradient-text">AI</span>
+                    SkillBridge<span className="gradient-text">AI</span>
                   </span>
                 </div>
                 <div className="hidden md:flex items-center gap-6 text-sm text-gray-400">
@@ -357,7 +357,7 @@ export default function LandingPage() {
                     title="Upload Resume"
                     subtitle="Let AI decode your path"
                     badge="Recommended"
-                    features={["PDF parsed by Mistral Small 24B in seconds", "Nemotron Ultra 253B builds roadmap", "Roles ranked by readiness score"]}
+                    features={["PDF parsed by Mistral Small 24B in seconds", "Nemotron 253B builds roadmap", "Roles ranked by readiness score"]}
                     onClick={() => setScene("resume")}
                   />
                   <GatewayCard
@@ -496,7 +496,7 @@ export default function LandingPage() {
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
                   <p className="text-xs text-red-400 font-semibold uppercase tracking-widest mb-3">Why It Matters</p>
                   <h2 className="text-3xl md:text-4xl font-black text-white mb-4">The career gap is real. <span className="gradient-text">AI closes it.</span></h2>
-                  <p className="text-gray-500 max-w-xl mx-auto">Most people spend months guessing what skills they need. CareerForge AI gives you a precision map in 60 seconds.</p>
+                  <p className="text-gray-500 max-w-xl mx-auto">Most people spend months guessing what skills they need. SkillBridge AI gives you a precision map in 60 seconds.</p>
                 </motion.div>
                 {/* Stats row */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
@@ -517,7 +517,7 @@ export default function LandingPage() {
                 <div className="grid md:grid-cols-3 gap-6">
                   {[
                     { icon: "🎯", title: "Precision Skill Gap", body: "Upload your resume and instantly see exactly which skills are holding you back from your dream role — not a generic list, but a diff against 35 real role benchmarks." },
-                    { icon: "🗺️", title: "Week-by-Week Roadmap", body: "NVIDIA Nemotron Ultra 253B (LoRA fine-tuned) builds a 12-week action plan with real courses, projects, and resources — not vague advice." },
+                    { icon: "🗺️", title: "Week-by-Week Roadmap", body: "NVIDIA Nemotron 253B (LoRA fine-tuned) builds a 12-week action plan with real courses, projects, and resources — not vague advice." },
                     { icon: "💼", title: "Live Job Market Data", body: "4 live job APIs (Remotive, Jobicy, The Muse, Adzuna) surface real openings that match your skill level right now, not cached listings." },
                   ].map(({ icon, title, body }) => (
                     <motion.div key={title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -540,11 +540,11 @@ export default function LandingPage() {
                 </motion.div>
                 <div className="space-y-3">
                   {[
-                    { q: "Do I need a resume to use CareerForge AI?", a: "No. You can choose \"Build Manually\" to select your role and type in your skills directly. Resume upload is optional — it just makes skill extraction instant and automatic." },
-                    { q: "Which AI models power this?", a: "4 specialized models: NVIDIA Nemotron Ultra 253B for roadmap generation (LoRA fine-tuned), Mistral Small 24B for skill extraction, DeepSeek R1 671B for market insights, and Qwen3 235B for interview & quiz questions." },
+                    { q: "Do I need a resume to use SkillBridge AI?", a: "No. You can choose \"Build Manually\" to select your role and type in your skills directly. Resume upload is optional — it just makes skill extraction instant and automatic." },
+                    { q: "Which AI models power this?", a: "4 specialized models: NVIDIA Nemotron 253B for roadmap generation (LoRA fine-tuned), Mistral Small 24B for skill extraction, DeepSeek R1 671B for market insights, and Qwen3 235B for interview & quiz questions." },
                     { q: "How accurate is the skill gap analysis?", a: "Skill gaps are compared against 293 curated skills across 35 role benchmarks built from real job postings. GLiNER NER + Mistral 24B extract skills from your resume with high precision." },
                     { q: "Is my resume data stored?", a: "Your resume PDF is only processed in-memory and never stored. The extracted skills and generated roadmap are saved to your account if you register, but the raw PDF is discarded immediately." },
-                    { q: "How long does it take to get a roadmap?", a: "Typically under 60 seconds end-to-end: ~5s for skill extraction, ~40s for roadmap generation via Nemotron Ultra 253B, ~10s for job fetching and RAG context injection." },
+                    { q: "How long does it take to get a roadmap?", a: "Typically under 60 seconds end-to-end: ~5s for skill extraction, ~40s for roadmap generation via Nemotron 253B, ~10s for job fetching and RAG context injection." },
                     { q: "Is it free?", a: "Yes — fully free. All AI models run on OpenRouter's free tier. No credit card required. The app is open to use without even creating an account." },
                   ].map(({ q, a }, i) => (
                     <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -567,7 +567,7 @@ export default function LandingPage() {
               <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-600">
                 <span className="flex items-center gap-2">
                   <Sparkles className="w-3 h-3 text-red-500" />
-                  CareerForge AI — 4 Models: Nemotron Ultra 253B · Mistral 24B · DeepSeek R1 · Qwen3 235B
+                  SkillBridge AI — 4 Models: Nemotron 253B · Mistral 24B · DeepSeek R1 · Qwen3 235B
                 </span>
                 <div className="flex gap-6">
                   <a href="/analytics" className="hover:text-gray-400 transition-colors">Model Analytics</a>
@@ -587,7 +587,7 @@ export default function LandingPage() {
               <div className="fixed top-0 left-0 right-0 z-10 px-6 py-4 flex items-center justify-between glass-dark border-b border-white/5">
                 <div className="flex items-center gap-2 text-sm">
                   <Sparkles className="w-4 h-4 text-red-400" />
-                  <span className="font-bold text-white">CareerForge<span className="gradient-text">AI</span></span>
+                  <span className="font-bold text-white">SkillBridge<span className="gradient-text">AI</span></span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="hidden sm:flex items-center gap-1.5">
@@ -620,7 +620,7 @@ export default function LandingPage() {
                       <h1 className="text-3xl md:text-4xl font-black text-white mb-3">
                         Drop your <span className="gradient-text">resume</span>
                       </h1>
-                      <p className="text-gray-400 text-sm">Mistral Small 24B extracts your skills · Nemotron Ultra 253B builds your roadmap</p>
+                      <p className="text-gray-400 text-sm">Mistral Small 24B extracts your skills · Nemotron 253B builds your roadmap</p>
                     </div>
 
                     <div {...getRootProps()}
@@ -690,7 +690,7 @@ export default function LandingPage() {
                       <h1 className="text-3xl font-black text-white mb-2">
                         Your <span className="gradient-text">best-fit</span> roles
                       </h1>
-                      <p className="text-gray-400 text-sm">Ranked by readiness score. Click to generate your roadmap with Nemotron Ultra 253B.</p>
+                      <p className="text-gray-400 text-sm">Ranked by readiness score. Click to generate your roadmap with Nemotron 253B.</p>
                     </div>
 
                     <div className="space-y-3 mb-4">
@@ -874,7 +874,7 @@ export default function LandingPage() {
                       <div className="text-center mb-8">
                         <p className="text-4xl mb-3">⏱️</p>
                         <h2 className="text-3xl font-black text-white mb-2">When do you want to <span className="gradient-text">arrive?</span></h2>
-                        <p className="text-gray-400 text-sm">Set your runway — Nemotron Ultra 253B calibrates the intensity</p>
+                        <p className="text-gray-400 text-sm">Set your runway — Nemotron 253B calibrates the intensity</p>
                       </div>
                       <div className="grid grid-cols-5 gap-3 mb-8">
                         {MONTHS.map((m) => (

@@ -15,7 +15,7 @@ const CHARTS = [
   {
     file: "model_comparison.png",
     title: "4-Model Nemotron Comparison: Baseline → Nano 30B → Super 120B → Ultra 253B",
-    desc: "Progressive quality improvements across the Nemotron family. Nemotron Ultra 253B achieves ROUGE-L=0.587 and Structure Score=0.923 — best-in-class for career roadmap generation.",
+    desc: "Progressive quality improvements across the Nemotron family. Nemotron 253B achieves ROUGE-L=0.587 and Structure Score=0.923 — best-in-class for career roadmap generation.",
   },
   {
     file: "bar_comparison.png",
@@ -42,7 +42,7 @@ const CHARTS = [
 const MODELS = [
   {
     id: 1,
-    name: "NVIDIA Nemotron Ultra 253B",
+    name: "NVIDIA Nemotron 253B",
     badge: "OpenRouter · Primary",
     task: "Roadmap Generation",
     reason: "NVIDIA's largest open model at 253B parameters. Best-in-class for structured, week-by-week career roadmap generation. Achieves ROUGE-L=0.587, Structure Score=0.923 — top across all Nemotron variants.",
@@ -194,7 +194,7 @@ export default function AnalyticsPage() {
               <span className="gradient-text">AI Model Analysis</span>
             </h1>
             <p className="text-gray-400 mt-1">
-              4-model architecture · Nemotron Ultra 253B · BERTScore + FactScore + ROUGE · LoRA fine-tuning · Multi-source job scraper
+              4-model architecture · Nemotron 253B · BERTScore + FactScore + ROUGE · LoRA fine-tuning · Multi-source job scraper
             </p>
           </div>
           <Link href="/" className="btn-ghost text-sm py-2 px-4 flex items-center gap-2">
@@ -435,7 +435,7 @@ export default function AnalyticsPage() {
             <div className="grid md:grid-cols-2 gap-6 text-sm">
               <div className="space-y-2">
                 {[
-                  ["Base Model", "NVIDIA Nemotron Ultra 253B (OpenRouter) / Llama-3.1-8B (LoRA)"],
+                  ["Base Model", "NVIDIA Nemotron 253B (OpenRouter) / Llama-3.1-8B (LoRA)"],
                   ["Fine-tuning Method", "LoRA (Low-Rank Adaptation) via Unsloth"],
                   ["LoRA Rank (r)", "16"],
                   ["LoRA Alpha", "16"],
