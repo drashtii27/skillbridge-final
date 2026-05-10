@@ -278,7 +278,7 @@ export default function AnalyticsPage() {
                     <tr className="text-left text-xs text-gray-500 uppercase tracking-wider border-b border-white/5">
                       <th className="pb-2 pr-6">Metric</th>
                       <th className="pb-2 pr-6 text-gray-400">Base (Zero-shot)</th>
-                      <th className="pb-2 pr-6 text-red-400">Fine-tuned LoRA (Nemotron Ultra)</th>
+                      <th className="pb-2 pr-6 text-red-400">Fine-Tuned LoRA (LLaMA 3.1 8B)</th>
                       <th className="pb-2">Δ Change</th>
                     </tr>
                   </thead>
